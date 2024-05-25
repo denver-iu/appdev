@@ -27,28 +27,58 @@ public class AddProduct extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    String asInsertValue(String uid, String name, String description, int amount, Double price) {
+        return "('" + uid + "', " + "'" + name + "', " + "'" + description + "', "
+                + amount + ", " + price + ")";
+    }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
-		String productCode = request.getParameter("product_code");
-		pw.printf("\n" + productCode);
+		pw.append("Served at: ").append(request.getContextPath());
+
+		String id = request.getParameter("product_uid");
+		String name = request.getParameter("product_name");
+		String description = request.getParameter("product_description");
+		String samount = request.getParameter("product_amount");
+		int amount = 0;
+		try {
+			amount = Integer.parseInt(samount);
+		}
+		catch (Exception e) {
+			response.sendError(400, "Input Error" + e);
+			return;
+		}
+		String sprice = request.getParameter("product_price");
+		Double price = 0.0;
+		try {
+			price = Double.parseDouble(sprice);
+		}
+		catch (Exception e) {
+			response.sendError(400, "Input Error" + e);
+			return;
+		}
 		
-		String productName = request.getParameter("product_name");
-		pw.printf("\n" + productName);
 		String sql;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fproject","root","root");
+			Connection con = DatabaseInitializer.connect();
+			if (con == null) {
+				response.sendError(500, "Error connecting to the database");
+				return;
+			}
+			
 			Statement stmt = con.createStatement();
-			sql = "INSERT INTO products (uid, name) VALUES ('" + productCode + "','" + productName +"');";
+			sql = "INSERT INTO products (uid, name, description, amount, price) VALUES"
+					+ asInsertValue(id, name, description, amount, price) + ";";
 			stmt.executeUpdate(sql);
 			con.close();
 			
-		} catch (Exception e) {System.out.println(e); }
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		pw.close();
 	}
