@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Tea Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Milky Tea Order Form</h1>
+        <form action="#" method="post">
+            <div class="cus-details">
+                <h2>Customer Information</h2>
+                <div class="form-group">
+                    <label for="name">Customer Name:</label>
+                    <input type="text" id="name" name="customer_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number:</label>
+                    <input type="tel" id="phone" name="contact_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+
+            <div class="order-details">
+                <h2>Order Details</h2>
+                <div class="form-group">
+                    <label for="tea_base">Tea Base:</label>
+                    <select id="tea_base" name="tea_base" required>
+                        <option value="black_tea">Black Tea</option>
+                        <option value="green_tea">Green Tea</option>
+                        <option value="oolong_tea">Oolong Tea</option>
+                        <option value="white_tea">White Tea</option>
+                        <option value="earl_grey">Earl Grey</option>
+                        <option value="matcha">Matcha</option>
+                        <option value="herbal_tea">Herbal Tea</option>
+                    </select>
+                </div>
+                <label>Sugar Level:</label>
+                <div class="sugar-lvl">
+                    <div class="form-group">
+                        <input type="radio" id="sugar-0" name="sugar_level" value="zero" required>
+                        <label for="sugar-0">0% Sugar</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="sugar-25" name="sugar_level" value="twofive" required>
+                        <label for="sugar-25">25% Sugar</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="sugar-50" name="sugar_level" value="fivezero" required>
+                        <label for="sugar-50">50% Sugar</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="sugar-75" name="sugar_level" value="seventyfive" required>
+                        <label for="sugar-75">75% Sugar</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="sugar-100" name="sugar_level" value="onehundred" required>
+                        <label for="sugar-100">100% Sugar</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toppings">
+                <h2>Toppings</h2>
+                <div class="checkbox-group">
+                    <div class="form-group">
+                        <input type="checkbox" id="boba" name="toppings" value="boba">
+                        <label for="boba">Tapioca Pearls (Boba)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="grass_jelly" name="toppings" value="grass_jelly">
+                        <label for="grass_jelly">Grass Jelly</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="pudding" name="toppings" value="pudding">
+                        <label for="pudding">Pudding</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="red_bean" name="toppings" value="red_bean">
+                        <label for="red_bean">Red Bean</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="lychee_jelly" name="toppings" value="lychee_jelly">
+                        <label for="lychee_jelly">Lychee Jelly</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="coconut_jelly" name="toppings" value="coconut_jelly">
+                        <label for="coconut_jelly">Coconut Jelly</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="cheese_foam" name="toppings" value="cheese_foam">
+                        <label for="cheese_foam">Cheese Foam</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="acai_seeds" name="toppings" value="acai_seeds">
+                        <label for="acai_seeds">Acai Seeds</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
