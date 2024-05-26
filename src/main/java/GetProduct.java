@@ -79,6 +79,7 @@ public class GetProduct extends HttpServlet {
             retJson += "]";
             response.setHeader("Content-Type", "application/json");
             pw.println(retJson);
+            con.close();
         }
         catch (Exception e) {
             System.out.println(e);
