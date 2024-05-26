@@ -17,7 +17,7 @@
         <% } %>
         <h2>Welcome, <%= username %>!</h2>
         <p>You have successfully logged in to the Milk Tea Shop.</p>
-        <a class="order-button" href="order.jsp">ORDER NOW</a>
+        <a class="order-button" href=<%= "order.jsp?username=" + username %>>ORDER NOW</a>
     </div>
 </body>
 </html>

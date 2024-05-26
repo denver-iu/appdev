@@ -12,31 +12,27 @@
 <div class="container">
 <form action="AddProduct" method="get">
     <h2>Add Product</h2>
-    <label for="product_code">ADMIN USERNAME:</label>
+    <% String error = request.getParameter("error"); %>
+    <% if (error != null) { %>
+    <div class="error"><%= error %></div>
+    <% } %>
+    <label for="admin_username">ADMIN USERNAME:</label>
 	<input type="text" name="admin_username" required><br>
-    <label for="product_code">ADMIN PASSWORD:</label>
-	<input type="text" name="admin_password" required><br>
+    <label for="admin_password">ADMIN PASSWORD:</label>
+	<input type="password" name="admin_password" required><br>
 
     <hr size="2px" color="#d3a625">
 
     <label for="product_code">Code:</label>
-	<input type="text" name="product_code" required><br>
+	<input type="text" name="product_uid" required><br>
     <label for="product_code">Name:</label>
 	<input type="text" name="product_name" required><br>
     <label for="product_code">Desc:</label>
-	<input type="text" name="product_desc" required><br>
+	<input type="text" name="product_description" required><br>
 
-    <div class="container-flex">
-        <div>
-            <label for="product_code">Amount:</label>
-            <input type="number" name="product_amount" required>
-        </div>
-        <div>
-            <label for="product_code">Price:</label>
-            <input type="number" step="0.5" name="product_price" required>
-        </div>
-    </div>
-
+    <label for="product_code">Price:</label>
+	<input type="number" step="0.5" name="product_price" required>
+	
 	<input type="Submit" value="Add">
 	<input type="Reset">
 </form>
